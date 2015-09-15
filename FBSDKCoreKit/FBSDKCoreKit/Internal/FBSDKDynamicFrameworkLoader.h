@@ -201,10 +201,6 @@ FBSDK_EXTERN OSStatus fbsdkdfl_AudioServicesCreateSystemSoundID(CFURLRef inFileU
 FBSDK_EXTERN OSStatus fbsdkdfl_AudioServicesDisposeSystemSoundID(SystemSoundID inSystemSoundID);
 FBSDK_EXTERN void fbsdkdfl_AudioServicesPlaySystemSound(SystemSoundID inSystemSoundID);
 
-#pragma mark - AdSupport Classes
-
-FBSDK_EXTERN Class fbsdkdfl_ASIdentifierManagerClass(void);
-
 #pragma mark - SafariServices Classes
 
 FBSDK_EXTERN Class fbsdkdfl_SFSafariViewControllerClass(void);

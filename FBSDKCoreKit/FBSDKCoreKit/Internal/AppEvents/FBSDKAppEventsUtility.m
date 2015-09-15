@@ -18,8 +18,6 @@
 
 #import "FBSDKAppEventsUtility.h"
 
-#import <AdSupport/AdSupport.h>
-
 #import "FBSDKAccessToken.h"
 #import "FBSDKAppEvents.h"
 #import "FBSDKAppEventsDeviceInfo.h"
@@ -88,34 +86,12 @@
 
 + (NSString *)advertiserID
 {
-  NSString *result = nil;
-
-  Class ASIdentifierManagerClass = fbsdkdfl_ASIdentifierManagerClass();
-  if ([ASIdentifierManagerClass class]) {
-    ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-    result = [[manager advertisingIdentifier] UUIDString];
-  }
-
-  return result;
+  return @"";
 }
 
 + (FBSDKAdvertisingTrackingStatus)advertisingTrackingStatus
 {
-  static dispatch_once_t fetchAdvertisingTrackingStatusOnce;
-  static FBSDKAdvertisingTrackingStatus status;
-
-  dispatch_once(&fetchAdvertisingTrackingStatusOnce, ^{
-    status = FBSDKAdvertisingTrackingUnspecified;
-    Class ASIdentifierManagerClass = fbsdkdfl_ASIdentifierManagerClass();
-    if ([ASIdentifierManagerClass class]) {
-      ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-      if (manager) {
-        status = [manager isAdvertisingTrackingEnabled] ? FBSDKAdvertisingTrackingAllowed : FBSDKAdvertisingTrackingDisallowed;
-      }
-    }
-  });
-
-  return status;
+    return FBSDKAdvertisingTrackingDisallowed;
 }
 
 + (NSString *)anonymousID
